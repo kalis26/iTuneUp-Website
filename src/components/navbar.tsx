@@ -12,7 +12,7 @@ function Navtbn({label, link}: NavbtnProps) {
 
 export default function Navbar() {
     return (
-        <div className="sticky top-0 flex flex-row items-center justify-center h-11 gap-8 bg-[rgba(250,250,252,0.8)] backdrop-blur-lg">
+        <div className="sticky top-0 flex flex-row items-center justify-center h-11 gap-10 bg-[rgba(250,250,252,0.8)] backdrop-blur-lg">
             <a href="/">
                 <Image 
                     src="/images/iTuneUp.png"
@@ -23,9 +23,10 @@ export default function Navbar() {
                     className="h-5 w-5"
                 />
             </a>
+            <Navtbn label="Home" link="/" />
             <Navtbn label="Features" link="" />
-            <Navtbn label="Documentation" link="" />
-            <Navtbn label="Support" link="" />
+            <Navtbn label="Documentation" link="/documentation" />
+            <Navtbn label="Support" link="/support" />
         </div>
     );
 }
