@@ -1,19 +1,19 @@
 import Image from "next/image";
 import { Helvetica, SfProDisplay } from "@/fonts";
 
-export default function Feature() {
+export default function FeatureSearch() {
     return (
         <div className="bg-white">
             <h1 className={`${SfProDisplay.className} font-semibold text-5xl md:text-6xl pt-10 pl-10 pr-10`}>Find it. Save it. Entire albums or single tracks.</h1>
-            <h1 className={`${SfProDisplay.className} font-semibold text-5xl md:text-6xl pb-10 pl-10 pr-10 text-[#708DFA]`}> It's that effortless.</h1>
-            <div className="flex flex-row gap-5 bg-white p-3 md:p-10 md:flex-nowrap flex-wrap">
-                <div className="bg-[#F5F5F7] rounded-xl p-3 md:p-10 text-center">
+            <h1 className={`${SfProDisplay.className} font-semibold text-5xl md:text-6xl pb-10 pl-10 pr-10 text-[#d464ae]`}> It's that effortless.</h1>
+            <div className="flex flex-row gap-5 bg-white p-3 md:p-10 md:flex-nowrap flex-wrap lg:max-w-4/5 mx-auto w-fit">
+                <div className="bg-[#F5F5F7] rounded-xl p-3 md:p-10 text-center flex flex-col justify-center">
                     <Image 
                         src="/images/Macbook.png"
                         height={1242}
                         width={2048}
                         alt="iTuneUp interface on a Macbook Air M4"
-                        className="h-auto w-auto p-5"
+                        className="h-auto w-auto p-5 pb-10"
                     />
                     <span className={`${SfProDisplay.className} font-semibold text-base text-[#6e6e73]`}>With <strong className="text-black/90">iTuneUp,</strong> you can bring music home the way you want it. Search, then download full albums or individual tracks instantly — ready to organize, ready to play.</span>
                 </div>
