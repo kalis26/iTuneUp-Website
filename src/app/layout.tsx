@@ -1,13 +1,17 @@
-import { SfProText, SfProDisplay } from "@/fonts";
+import { SfProDisplay } from "@/fonts";
 import Navbar from "@/components/navbar"
+import Footer from "@/components/footer";
 import "./globals.css";
 
-export default function RootLayout({children}: Readonly<{children: React.ReactNode;}>) {
+export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <html lang="en">
-      <body className={`${SfProDisplay.className} antialiased`}>
+      <body className={`${SfProDisplay.className} antialiased min-h-screen flex flex-col`}>
         <Navbar />
-        {children}
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

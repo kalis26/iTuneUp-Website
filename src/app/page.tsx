@@ -25,7 +25,9 @@ export default function Home() {
             className="pb-32"
           />
         </div>
-        <FeatureSearch />
+        <div id="features">
+          <FeatureSearch />
+        </div>
         <FeatureConversion />
         <FeatureMetadata />
         <NoFee />

@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function FeatureSearch() {
     return (
         <div className="bg-white">
-            <h1 className={`font-semibold text-5xl md:text-6xl pt-10 pl-10 pr-10 text-[rgb(29,29,31)]`}>Find it. Save it. Entire albums or single tracks.</h1>
+            <h1 className={`font-semibold text-5xl md:text-6xl pt-20 pl-10 pr-10 text-[rgb(29,29,31)]`}>Find it. Save it. Entire albums or single tracks.</h1>
             <h1 className={`font-semibold text-5xl md:text-6xl pb-10 pl-10 pr-10 text-[#d464ae]`}> It's that effortless.</h1>
             <div className="flex flex-row gap-5 bg-white p-10 md:flex-nowrap flex-wrap lg:max-w-4/5 mx-auto w-fit">
                 <div className="bg-[#F5F5F7] rounded-xl p-3 md:p-10 text-center flex flex-col justify-center">
