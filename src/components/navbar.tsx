@@ -45,6 +45,7 @@ export default function Navbar() {
         } else {
             setShouldScrollToFeatures(true);
             router.push('/');
+            if (showOverlay) setShowOverlay(false);
         }
     };
 
@@ -117,15 +118,15 @@ export default function Navbar() {
                             </svg>
                         </button>
                     </div>
-                    <Navtbn tinted={true} label="Download" link="https://github.com/kalis26/iTuneUp/releases/download/v1.2.5/iTuneUp-Setup.exe" />
+                    <Navtbn internal={false} tinted={true} label="Download" link="https://github.com/kalis26/iTuneUp/releases/download/v1.2.5/iTuneUp-Setup.exe" />
                 </div>
             </div>
             <div className={`fixed inset-0 z-[100] bg-white/50 backdrop-blur-3xl transition-opacity duration-300 ${showOverlay ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
                 <div className="flex flex-col gap-6 pt-16 pl-6 pb-10 bg-white">
-                    <Navtbn label="Home" link="/" internal={true} tinted={false} />
-                    <Navtbn label="Features" onClick={handleFeaturesClick} tinted={false} />
-                    <Navtbn label="Documentation" link="/documentation" internal={true} tinted={false} />
-                    <Navtbn label="Support" link="/support" internal={true} tinted={false} />
+                    <Navtbn onClick={() => setShowOverlay(false)} label="Home" link="/" internal={true} tinted={false} />
+                    <Navtbn onClick={handleFeaturesClick} label="Features" tinted={false} />
+                    <Navtbn onClick={() => setShowOverlay(false)} label="Documentation" link="/documentation" internal={true} tinted={false} />
+                    <Navtbn onClick={() => setShowOverlay(false)} label="Support" link="/support" internal={true} tinted={false} />
                 </div>
             </div>
         </>
