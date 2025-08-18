@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { SfProText } from "@/fonts";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
 type NavbtnProps = {
@@ -31,7 +31,9 @@ function Navtbn({label, link, tinted, internal, onClick}: NavbtnProps) {
 export default function Navbar() {
 
     const [ showOverlay, setShowOverlay ] = useState(false);
+    const [ shouldScrollToFeatures, setShouldScrollToFeatures ] = useState(false);
     const pathname = usePathname();
+    const router = useRouter();
 
     const handleFeaturesClick = () => {
         if (pathname === '/') {
@@ -41,7 +43,8 @@ export default function Navbar() {
                 featuresElement.scrollIntoView({ behavior: 'smooth' });
             }
         } else {
-            window.location.href = '/#features';
+            setShouldScrollToFeatures(true);
+            router.push('/');
         }
     };
 
@@ -58,6 +61,18 @@ export default function Navbar() {
         };
 
     }, [showOverlay]);
+
+    useEffect(() => {
+        if (pathname === '/' && shouldScrollToFeatures) {
+            setTimeout(() => {
+                const featuresElement = document.getElementById('features');
+                if (featuresElement) {
+                    featuresElement.scrollIntoView({ behavior: 'smooth' });
+                    setShouldScrollToFeatures(false);
+                }
+            }, 100);
+        }
+    }, [pathname, shouldScrollToFeatures]);
 
     useEffect(() => {
         if (pathname === '/' && window.location.hash === '#features') {
