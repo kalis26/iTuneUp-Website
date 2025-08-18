@@ -15,11 +15,3 @@ export const SfProText = localFont({
   ],
   display: 'swap',
 });
-
-export const Helvetica = localFont({
-  src: [
-    {path: '../public/fonts/Helvetica.woff2', weight: '400'},
-    {path: '../public/fonts/Helvetica-Bold.woff2', weight: '700'}
-  ],
-  display: "swap",
-});
