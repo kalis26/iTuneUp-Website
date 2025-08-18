@@ -4,7 +4,7 @@ export default function FeatureSearch() {
     return (
         <div className="bg-white">
             <h1 className={`font-semibold text-5xl md:text-6xl pt-20 pl-10 pr-10 text-[rgb(29,29,31)]`}>Find it. Save it. Entire albums or single tracks.</h1>
-            <h1 className={`font-semibold text-5xl md:text-6xl pb-10 pl-10 pr-10 text-[#d464ae]`}> It's that effortless.</h1>
+            <h1 className={`font-semibold text-5xl md:text-6xl pb-10 pl-10 pr-10 text-[#d464ae]`}> It&apos;s that effortless.</h1>
             <div className="flex flex-row gap-5 bg-white p-10 md:flex-nowrap flex-wrap lg:max-w-4/5 mx-auto w-fit">
                 <div className="bg-[#F5F5F7] rounded-xl p-3 md:p-10 text-center flex flex-col justify-center">
                     <Image 
@@ -33,7 +33,7 @@ export default function FeatureSearch() {
                     </div>
                     <div className="bg-[#F5F5F7] flex-1 p-6 md:p-10 text-center text-base rounded-xl">
                         <div className="flex flex-col items-center">
-                            <span className={`font-semibold text-base text-[#6e6e73]`}>Build a new library from the ground up. Or perfect the one you already love. With iTuneUp, it’s all there. <strong className="text-[#1D1D1F]">Simple. Seamless. Yours.</strong></span>
+                            <span className={`font-semibold text-base text-[#6e6e73]`}>Build a new library from the ground up. Or perfect the one you already love. With iTuneUp, it&apos;s all there. <strong className="text-[#1D1D1F]">Simple. Seamless. Yours.</strong></span>
                             <Image 
                                 src="/images/Library.png"
                                 height={305}

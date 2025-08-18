@@ -6,7 +6,7 @@ export default function FeatureMetadata() {
             <div className="p-3 md:p-10 flex flex-col gap-6">
                 <div className="pb-10">
                     <h1 className={`pl-7 md:p-0 text-5xl md:text-6xl text-[#708DFA] font-semibold`}>Details matter.</h1>
-                    <h1 className={`pl-7 md:p-0 text-5xl md:text-6xl text-[rgb(29,29,31)] font-semibold`}>That's why we get them right.</h1>
+                    <h1 className={`pl-7 md:p-0 text-5xl md:text-6xl text-[rgb(29,29,31)] font-semibold`}>That&apos;s why we get them right.</h1>
                 </div>
             </div>
             <Image 
@@ -16,7 +16,7 @@ export default function FeatureMetadata() {
                 alt="Apple Music Library on an iPhone"
                 className="w-full h-full"
             />
-            <p className={`text-2xl text-[#6e6e73] font-semibold pl-10 pr-10 md:pl-16 pt-10 md:pt-16 pb-10 lg:pl-48 md:max-w-2/3`}>Your music should feel <strong className="text-[#1D1D1F]">complete.</strong> That’s why every track you download 
+            <p className={`text-2xl text-[#6e6e73] font-semibold pl-10 pr-10 md:pl-16 pt-10 md:pt-16 pb-10 lg:pl-48 md:max-w-2/3`}>Your music should feel <strong className="text-[#1D1D1F]">complete.</strong> That&apos;s why every track you download 
                 comes enriched with the details that matter — titles, artists, release dates,
                 artwork and more. <strong className="text-[#1D1D1F]">The result?</strong> A library that looks polished, 
                 stays perfectly organized, and syncs seamlessly with Apple Music on every device.

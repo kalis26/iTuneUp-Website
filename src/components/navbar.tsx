@@ -4,21 +4,28 @@ import Image from "next/image";
 import { SfProText } from "@/fonts";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 type NavbtnProps = {
     tinted?: boolean;
     label: string;
     link?: string;
+    internal?: boolean;
     onClick?: () => void;
 };
 
-function Navtbn({label, link, tinted, onClick}: NavbtnProps) {
+function Navtbn({label, link, tinted, internal, onClick}: NavbtnProps) {
     const baseClassName = `${SfProText.className} text-left cursor-pointer font-light text-sm transition-all duration-200 ${tinted ? "bg-[#0091FF] text-white hover:bg-[#2ea5ff] border-white/15 border-[1px] hover:text-white px-2 py-1 rounded-2xl" : "text-black/80 hover:text-black "}`;
     
     if (onClick) {
         return <button onClick={onClick} className={baseClassName}>{label}</button>
     }
-    return <a href={link} className={baseClassName}>{label}</a>
+    if (!internal) {
+        return <a href={link} className={baseClassName}>{label}</a>
+    } else {
+        return <Link href={link || "/"} className={baseClassName}>{label}</Link>
+    }
+    
 }
 
 export default function Navbar() {
@@ -82,10 +89,10 @@ export default function Navbar() {
                     </a>
                 </div>
                 <div className="hidden md:flex flex-1 flex-row items-center justify-center md:gap-5 lg:gap-10">        
-                    <Navtbn label="Home" link="/" tinted={false} />
+                    <Navtbn label="Home" link="/" internal={true} tinted={false} />
                     <Navtbn label="Features" onClick={handleFeaturesClick} tinted={false} />
-                    <Navtbn label="Documentation" link="/documentation" tinted={false} />
-                    <Navtbn label="Support" link="/support" tinted={false} />
+                    <Navtbn label="Documentation" link="/documentation" internal={true} tinted={false} />
+                    <Navtbn label="Support" link="/support" internal={true} tinted={false} />
                 </div>
                 <div className="flex-1 flex flex-row items-center md:justify-center justify-end gap-4 md:p-0 pr-6">
                     <div className="md:hidden flex items-center">
@@ -100,10 +107,10 @@ export default function Navbar() {
             </div>
             <div className={`fixed inset-0 z-[100] bg-white/50 backdrop-blur-3xl transition-opacity duration-300 ${showOverlay ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
                 <div className="flex flex-col gap-6 pt-16 pl-6 pb-10 bg-white">
-                    <Navtbn label="Home" link="/" tinted={false} />
+                    <Navtbn label="Home" link="/" internal={true} tinted={false} />
                     <Navtbn label="Features" onClick={handleFeaturesClick} tinted={false} />
-                    <Navtbn label="Documentation" link="/documentation" tinted={false} />
-                    <Navtbn label="Support" link="/support" tinted={false} />
+                    <Navtbn label="Documentation" link="/documentation" internal={true} tinted={false} />
+                    <Navtbn label="Support" link="/support" internal={true} tinted={false} />
                 </div>
             </div>
         </>
