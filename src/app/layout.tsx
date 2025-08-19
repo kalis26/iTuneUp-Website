@@ -1,6 +1,8 @@
 import { SfProDisplay } from "@/fonts";
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer";
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
@@ -12,6 +14,8 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
           {children}
         </main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
