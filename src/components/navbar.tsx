@@ -12,18 +12,28 @@ type NavbtnProps = {
     link?: string;
     internal?: boolean;
     onClick?: () => void;
+    onNavigate?: () => void; // Function to call when navigation happens
 };
 
-function Navtbn({label, link, tinted, internal, onClick}: NavbtnProps) {
+function Navtbn({label, link, tinted, internal, onClick, onNavigate}: NavbtnProps) {
     const baseClassName = `${SfProText.className} text-left cursor-pointer font-light text-sm transition-all duration-200 ${tinted ? "bg-[#0091FF] text-white hover:bg-[#2ea5ff] border-white/15 border-[1px] hover:text-white px-2 py-1 rounded-2xl" : "text-black/80 hover:text-black "}`;
     
+    const handleClick = () => {
+        if (onNavigate) onNavigate();
+        if (onClick) onClick();
+    };
+    
+    const handleLinkClick = () => {
+        if (onNavigate) onNavigate();
+    };
+    
     if (onClick) {
-        return <button onClick={onClick} className={baseClassName}>{label}</button>
+        return <button onClick={handleClick} className={baseClassName}>{label}</button>
     }
     if (!internal) {
-        return <a href={link} className={baseClassName}>{label}</a>
+        return <a href={link} onClick={handleLinkClick} className={baseClassName}>{label}</a>
     } else {
-        return <Link href={link || "/"} className={baseClassName}>{label}</Link>
+        return <Link href={link || "/"} onClick={handleLinkClick} className={baseClassName}>{label}</Link>
     }
     
 }
@@ -47,6 +57,10 @@ export default function Navbar() {
             router.push('/');
             if (showOverlay) setShowOverlay(false);
         }
+    };
+
+    const closeOverlay = () => {
+        setShowOverlay(false);
     };
 
     useEffect(() => {
@@ -123,10 +137,10 @@ export default function Navbar() {
             </div>
             <div className={`fixed inset-0 z-[100] bg-white/50 backdrop-blur-3xl transition-opacity duration-300 ${showOverlay ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
                 <div className="flex flex-col gap-6 pt-16 pl-6 pb-10 bg-white">
-                    <Navtbn onClick={() => setShowOverlay(false)} label="Home" link="/" internal={true} tinted={false} />
-                    <Navtbn onClick={handleFeaturesClick} label="Features" tinted={false} />
-                    <Navtbn onClick={() => setShowOverlay(false)} label="Documentation" link="/documentation" internal={true} tinted={false} />
-                    <Navtbn onClick={() => setShowOverlay(false)} label="Support" link="/support" internal={true} tinted={false} />
+                    <Navtbn label="Home" link="/" internal={true} tinted={false} onNavigate={closeOverlay} />
+                    <Navtbn onClick={handleFeaturesClick} label="Features" tinted={false} onNavigate={closeOverlay} />
+                    <Navtbn label="Documentation" link="/documentation" internal={true} tinted={false} onNavigate={closeOverlay} />
+                    <Navtbn label="Support" link="/support" internal={true} tinted={false} onNavigate={closeOverlay} />
                 </div>
             </div>
         </>
